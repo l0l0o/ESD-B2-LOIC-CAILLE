@@ -1,0 +1,44 @@
+{
+  "id": "articles_list",
+  "type": "SharedSlice",
+  "name": "ArticlesList",
+  "description": "ArticlesList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title_slice": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title Slice",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading4,strong"
+          }
+        },
+        "card_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "card title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "strong,paragraph"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

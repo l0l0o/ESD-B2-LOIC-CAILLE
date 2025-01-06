@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title_slice": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Hidden"
+						}
+					}
+				]
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "plate",
+				"type": "Text"
+			},
+			"card_title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint excepteur officia dolore id amet elit. Ea in amet deserunt ipsum tempor aute id et ea Lorem sit est Lorem non."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

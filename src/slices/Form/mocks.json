@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Knife"
+						}
+					}
+				]
+			},
+			"text_color": {
+				"__TYPE__": "FieldContent",
+				"value": "#11c96d",
+				"type": "Color"
+			}
+		},
+		"items": []
+	}
+]
