@@ -19,16 +19,10 @@
 				"value": "plate",
 				"type": "Text"
 			},
-			"card_title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Sint excepteur officia dolore id amet elit. Ea in amet deserunt ipsum tempor aute id et ea Lorem sit est Lorem non."
-						}
-					}
-				]
+			"max_articles_number": {
+				"__TYPE__": "FieldContent",
+				"value": "91",
+				"type": "Number"
 			}
 		},
 		"items": []

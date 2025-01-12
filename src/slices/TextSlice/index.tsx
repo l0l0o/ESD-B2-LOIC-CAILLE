@@ -16,7 +16,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex flex-row`}
+      className={`flex flex-row rounded-lg`}
       style={{ backgroundColor: slice.primary.section_color || undefined }}
     > 
       <PrismicNextImage field={slice.primary.halfscreen_image} alt="" className="w-1/2"/>

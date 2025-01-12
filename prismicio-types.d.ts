@@ -393,16 +393,6 @@ export interface ArticlesListSliceDefaultPrimary {
   title_slice: prismic.RichTextField;
 
   /**
-   * card title field in *ArticlesList → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: articles_list.default.primary.card_title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  card_title: prismic.RichTextField;
-
-  /**
    * Button Text field in *ArticlesList → Default → Primary*
    *
    * - **Field Type**: Text
@@ -411,6 +401,16 @@ export interface ArticlesListSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
+
+  /**
+   * max articles number field in *ArticlesList → Default → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: articles_list.default.primary.max_articles_number
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  max_articles_number: prismic.NumberField;
 }
 
 /**

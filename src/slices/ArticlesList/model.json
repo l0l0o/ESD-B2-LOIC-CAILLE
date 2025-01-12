@@ -21,19 +21,17 @@
             "multi": "heading4,strong"
           }
         },
-        "card_title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "card title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "strong,paragraph"
-          }
-        },
         "button_text": {
           "type": "Text",
           "config": {
             "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "max_articles_number": {
+          "type": "Number",
+          "config": {
+            "label": "max articles number",
             "placeholder": ""
           }
         }
