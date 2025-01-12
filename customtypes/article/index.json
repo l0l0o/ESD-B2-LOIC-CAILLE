@@ -1,18 +1,48 @@
 {
   "format": "page",
-  "id": "all_articles",
-  "label": "All Articles",
-  "repeatable": false,
+  "id": "article",
+  "label": "Article",
+  "repeatable": true,
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "StructuredText",
+      "uid": {
+        "type": "UID",
         "config": {
-          "label": "Title",
+          "label": "article"
+        }
+      },
+      "article_title": {
+        "type": "Text",
+        "config": {
+          "label": "Article Title",
+          "placeholder": ""
+        }
+      },
+      "article_image": {
+        "type": "Image",
+        "config": {
+          "label": "Article Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "article_link": {
+        "type": "Link",
+        "config": {
+          "label": "Article Link",
           "placeholder": "",
+          "select": null,
           "allowTargetBlank": true,
-          "multi": "heading4,strong"
+          "allowText": false,
+          "repeat": false
+        }
+      },
+      "date": {
+        "type": "Timestamp",
+        "config": {
+          "label": "Date",
+          "placeholder": ""
         }
       },
       "slices": {
@@ -20,7 +50,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "articles_list": {
+            "text_slice": {
               "type": "SharedSlice"
             }
           }

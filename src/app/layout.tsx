@@ -4,7 +4,7 @@ import "./globals.css";
 import { createClient, repositoryName } from "@/prismicio";
 import Header from "@/components/Header";
 import { PrismicPreview } from "@prismicio/next";
-
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +15,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -38,13 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col items-center gap-3`}
       >
         <Header />
         <div className="w-3/4">
           {children}
           <PrismicPreview repositoryName={repositoryName} />
         </div>
+        <Footer />
       </body>
     </html>
   );

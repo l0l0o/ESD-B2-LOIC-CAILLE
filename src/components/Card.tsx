@@ -1,11 +1,10 @@
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText } from "@prismicio/react";
 import { Button } from "./ui/button";
-import { ImageFieldImage, KeyTextField, RichTextField } from "@prismicio/client";
+import { ImageFieldImage, KeyTextField } from "@prismicio/client";
 
 type CardProps = {
     imageField: ImageFieldImage | null | undefined;
-    titleField: RichTextField | null | undefined;
+    titleField: KeyTextField;
     buttonText: KeyTextField;
     link: string;
 };
@@ -13,20 +12,18 @@ type CardProps = {
 const Card = ( {imageField, titleField, buttonText, link}: CardProps ) => {
     return ( 
         <div
-          className="flex flex-col w-[300px] bg-white shadow-md rounded-lg p-4"
+          className="flex flex-col w-full bg-white shadow-md rounded-lg p-4 min-w-80 max-w-96"
         >
               {/* Image */}
               <PrismicNextImage
                 alt=''
-                className="w-full h-auto object-cover rounded-t-lg"
+                className="w-full h-60 object-cover rounded-lg"
                 field={imageField}
               />
 
               {/* Title */}
-              <PrismicRichText field={titleField} components={{
-                paragraph: ({ children }) => <p className="mt-4 text-lg font-bold">{children}</p>,
-              }} />
-
+              <p className="mt-4 text-lg font-bold">{titleField}</p>,
+              
               {/* Link */}
                 <a href={link} className="w-full">
                   <Button className="w-full" variant="secondary">

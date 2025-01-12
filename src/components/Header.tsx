@@ -10,7 +10,7 @@ const Header = async () => {
     return (
         <NavigationMenu className="flex gap-6 justify-center p-4">
             {settings.data.navigation.map(({label, link}) => (
-                <PrismicNextLink key={label} field={link}>{label}</PrismicNextLink>
+                <PrismicNextLink key={label} field={link} className="font-bold">{label}</PrismicNextLink>
             ))}
         </NavigationMenu>
     );

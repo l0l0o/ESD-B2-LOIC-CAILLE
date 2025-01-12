@@ -12,19 +12,17 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Title",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading4,strong"
-          }
-        },
         "text_color": {
           "type": "Color",
           "config": {
             "label": "Text Color",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
             "placeholder": ""
           }
         }

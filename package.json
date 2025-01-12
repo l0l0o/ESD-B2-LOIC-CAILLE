@@ -18,6 +18,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.1",
     "@typescript-eslint/parser": "^8.19.0",
+    "airtable": "^0.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
@@ -34,6 +35,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@slicemachine/adapter-next": "^0.3.61",
+    "@types/airtable": "^0.10.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

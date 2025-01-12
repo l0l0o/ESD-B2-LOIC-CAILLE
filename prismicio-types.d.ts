@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AllArticlesDocumentDataSlicesSlice = never;
+type AllArticlesDocumentDataSlicesSlice = ArticlesListSlice;
 
 /**
  * Content for All Articles documents
@@ -80,59 +80,112 @@ export type AllArticlesDocument<Lang extends string = string> =
     Lang
   >;
 
-type ArticlesDocumentDataSlicesSlice = TextSliceSlice;
+type ArticleDocumentDataSlicesSlice = TextSliceSlice;
 
 /**
- * Content for Articles documents
+ * Content for Article documents
  */
-interface ArticlesDocumentData {
+interface ArticleDocumentData {
   /**
-   * Image field in *Articles*
+   * Article Title field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.article_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  article_title: prismic.KeyTextField;
+
+  /**
+   * Article Image field in *Article*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: articles.image
+   * - **API ID Path**: article.article_image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
+  article_image: prismic.ImageField<never>;
 
   /**
-   * Title field in *Articles*
+   * Article Link field in *Article*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: articles.title
+   * - **API ID Path**: article.article_link
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  title: prismic.RichTextField;
+  article_link: prismic.LinkField;
 
   /**
-   * Slice Zone field in *Articles*
+   * Date field in *Article*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  date: prismic.TimestampField;
+
+  /**
+   * Slice Zone field in *Article*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: articles.slices[]
+   * - **API ID Path**: article.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ArticlesDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+   * Meta Title field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: article.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: article.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: article.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
- * Articles document from Prismic
+ * Article document from Prismic
  *
- * - **API ID**: `articles`
+ * - **API ID**: `article`
  * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type ArticlesDocument<Lang extends string = string> =
+export type ArticleDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
-    Simplify<ArticlesDocumentData>,
-    "articles",
+    Simplify<ArticleDocumentData>,
+    "article",
     Lang
   >;
 
@@ -306,77 +359,51 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type SinglepageDocumentDataSlicesSlice = never;
-
 /**
- * Content for SinglePage documents
+ * Content for User documents
  */
-interface SinglepageDocumentData {
+interface UserDocumentData {
   /**
-   * Slice Zone field in *SinglePage*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: singlepage.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<SinglepageDocumentDataSlicesSlice> /**
-   * Meta Title field in *SinglePage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: singlepage.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *SinglePage*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: singlepage.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *SinglePage*
+   * User Picture field in *User*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: singlepage.meta_image
-   * - **Tab**: SEO & Metadata
+   * - **API ID Path**: user.user_picture
+   * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  user_picture: prismic.ImageField<never>;
+
+  /**
+   * Username field in *User*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: user.username
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  username: prismic.KeyTextField;
 }
 
 /**
- * SinglePage document from Prismic
+ * User document from Prismic
  *
- * - **API ID**: `singlepage`
- * - **Repeatable**: `false`
+ * - **API ID**: `user`
+ * - **Repeatable**: `true`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type SinglepageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<SinglepageDocumentData>,
-    "singlepage",
-    Lang
-  >;
+export type UserDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<UserDocumentData>, "user", Lang>;
 
 export type AllDocumentTypes =
   | AllArticlesDocument
-  | ArticlesDocument
+  | ArticleDocument
   | HomepageDocument
   | SettingsDocument
-  | SinglepageDocument;
+  | UserDocument;
 
 /**
  * Primary content in *ArticlesList → Default → Primary*
@@ -448,16 +475,6 @@ export type ArticlesListSlice = prismic.SharedSlice<
  */
 export interface FormSliceDefaultPrimary {
   /**
-   * Title field in *Form → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: form.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
    * Text Color field in *Form → Default → Primary*
    *
    * - **Field Type**: Color
@@ -466,6 +483,16 @@ export interface FormSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#color
    */
   text_color: prismic.ColorField;
+
+  /**
+   * Title field in *Form → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: form.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
 }
 
 /**
@@ -716,18 +743,17 @@ declare module "@prismicio/client" {
       AllArticlesDocument,
       AllArticlesDocumentData,
       AllArticlesDocumentDataSlicesSlice,
-      ArticlesDocument,
-      ArticlesDocumentData,
-      ArticlesDocumentDataSlicesSlice,
+      ArticleDocument,
+      ArticleDocumentData,
+      ArticleDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
-      SinglepageDocument,
-      SinglepageDocumentData,
-      SinglepageDocumentDataSlicesSlice,
+      UserDocument,
+      UserDocumentData,
       AllDocumentTypes,
       ArticlesListSlice,
       ArticlesListSliceDefaultPrimary,

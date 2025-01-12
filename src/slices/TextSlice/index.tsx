@@ -16,14 +16,16 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex flex-row rounded-lg`}
+      className={`overflow-hidden flex flex-row rounded-lg`}
       style={{ backgroundColor: slice.primary.section_color || undefined }}
     > 
-      <PrismicNextImage field={slice.primary.halfscreen_image} alt="" className="w-1/2"/>
+      <div className="flex justify-center align-middle w-full max-h-80">
+        <PrismicNextImage field={slice.primary.halfscreen_image} alt="" className="rounded-lg object-cover w-full"/>
+      </div>
       <div className="w-full p-10">
         <div className="mb-4">
           <PrismicRichText field={slice.primary.title} components={{
-            heading4: ({ children }) => <h4 style={{ color: slice.primary.text_color || undefined }} className="text-4xl font-bold">{children}</h4>,
+            heading4: ({ children }) => <h4 style={{ color: slice.primary.text_color || undefined }} className="text-4xl font-bold mb-8">{children}</h4>,
           }} />
           <PrismicRichText field={slice.primary.text_content} components={{
             paragraph: ({ children }) => <p style={{ color: slice.primary.text_color || undefined }} className="text-lg">{children}</p>,
